@@ -14,11 +14,11 @@ def print_slow(str):
         time.sleep(0.005)
 #Dar rest ou se aventurar
 print_slow("Você deseja passear ou dormir?")
-escolha=input("\n"+"->").title()
+escolha=input("\n"+"-> ").title()
 while escolha=="Dormir":
 	print_slow("..........."+"\n"+"Você se sente cheio de determinação.")
 	print_slow("\n"+"Agora você deseja passear ou dormir?")
-	escolha=input("\n"+"->").title()
+	escolha=input("\n"+"-> ").title()
 
 
 #Opções de lugares para ir

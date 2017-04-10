@@ -1,37 +1,42 @@
 [
 	{
-		"nome" : "Pelicas",
-		"poder" : 25,
-		"vida" : 20,
-		"defesa" : 12,
-		"tipo" : "Fogo"
+		"nome" : "Pelicano",
+		"attack" : 16,
+		"vida" : 30,
+		"defesa" : 8,
+		"tipo" : "Fogo",
+		"numb" : 0
 	},
 	{
-		"nome" : "Cararethor",
-		"poder" : 20,
-		"vida" : 20,
+		"nome" : "Carareto",
+		"attack" : 14,
+		"vida" : 30,
 		"defesa" : 10,
-		"tipo" : "ElÈtrico"
+		"tipo" : "El√©trico",
+		"numb" : 1
 	},
 	{
-		"nome" : "Lucianos",
-		"poder" : 15,
-		"vida" : 20,
+		"nome" : "Luciano",
+		"attack" : 12,
+		"vida" : 30,
 		"defesa" : 10,
-		"tipo" : "¡gua"
-	}
-	{,
-		"nome" : "Fernandor",
-		"poder" : 25,
-		"vida" : 20,
-		"defesa" : 5,
-		"tipo" : "Gelo"
+		"tipo" : "√Ågua",
+		"numb" : 2
 	},
 	{
-		"nome" : "Dani-vitor",
-		"poder" : 15,
-		"vida": 22,
-		"defesa" : 15,
-		"tipo" : "Pedra"
+		"nome" : "Fernando",
+		"attack" : 12,
+		"vida" : 30,
+		"defesa" : 10,
+		"tipo" : "Gelo",
+		"numb" : 3
+	},
+	{
+		"nome" : "VitDan",
+		"attack" : 13,
+		"vida": 30,
+		"defesa" : 10,
+		"tipo" : "Pedra",
+		"numb" : 4
 	}
 ]
