@@ -21,7 +21,9 @@ esc=input("-> ")
 if (esc=="2"):
 	fuga=["Você correu com êxito!", "Deu ruim!!! Vai ter que lutar!\n"]
 	x=(random.choice(fuga))
-	if (x==fuga[1]):
+	if (x==fuga[0]):
+		print_slow(fuga[0])
+	elif (x==fuga[1]):
 		print_slow(fuga[1])
 		print_slow("\nDados do "+str(insperdex[pokemon]['nome'])+":"+"\n"+"- Vida: "+str(insperdex[pokemon]['vida'])+"\n"+"- Poder 1: "+str(insperdex[pokemon]['attack'])+"\n- Defesa: "+str(insperdex[pokemon]['defesa'])+"\n"+"- Tipo: "+str(insperdex[pokemon]['tipo'])+"\n")
 		from inspermon import inspermon_inicial,insperdex_n
@@ -62,8 +64,9 @@ if (esc=="2"):
 			insperdex[pokemon]['attack']==2*insperdex[pokemon]['attack']
 			#insperdex[pokemon]['power']==2*insperdex[pokemon]['power']
 
-		print_slow("\nQual poder você deseja usar?\n"+"- Poder 1: "+str(insperdex[insperdex_n]['attack'])+"\n- Poder 2: "+str(insperdex[insperdex_n]['power'])+"\n")
+		print_slow("\nQual poder você deseja usar?\n"+"- Poder 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
 		ataque=int(input("-> "))
+		
 		def seusAtaques(ataque):
 			miss=["Errou!","Acertou"]
 			if (ataque==1):
@@ -78,8 +81,41 @@ if (esc=="2"):
 					return print_slow("\nVocê causou "+str(dano)+" de dano no "+str(insperdex[pokemon]['nome'])+"!!!")
 			elif (ataque==2):
 				return print_slow("Ainda sem ataques")
-	elif (x==fuga[0]):
-		print_slow(fuga[0])
+
+			def ataqueOutro():
+				miss=["Errou","Acertou"]
+				miss_chance=(random.choice(miss))
+				if (miss_chance==0):
+					return print_slow("\nMiss attack do inimigo")
+				else:
+					insperdex[insperdex_n]['vida']=insperdex[insperdex_n]['vida']-insperdex[pokemon]['attack']+insperdex[insperdex_n]['defesa']
+					dano=insperdex[pokemon]['attack']-insperdex[insperdex_n]['defesa']
+					if (dano<=0):
+						dano=0
+					if (insperdex[insperdex_n]['vida']<=0):
+						insperdex[insperdex_n]['vida']=0
+					elif (x==fuga[0]):
+						print_slow(fuga[0])
+					#return insperdex[insperdex_n]['vida']
+					return print_slow("\nVocê levou "+str(dano)+" de dano do "+str(insperdex[pokemon]['nome'])+"!!!")
+			insperdex[insperdex_n]['vida']=insperdex[insperdex_n]['vida']
+			insperdex[pokemon]['vida']=insperdex[pokemon]['vida']
+			while (insperdex[insperdex_n]['vida']>0 or insperdex[pokemon]['vida']>0):
+				if (insperdex[insperdex_n]['vida']==30 and insperdex[pokemon]['vida']==30):
+					print_slow("\nQual ataque você deseja usar?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")	
+				else:
+					print_slow("\nQual ataque você deseja usar agora?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
+				ataque=int(input("-> "))
+				print_slow("\n"+str(seusAtaques(ataque)))
+				if (insperdex[pokemon]['vida']==0):
+					break
+				print_slow("\nAgora a vida do "+str(insperdex[pokemon]['nome'])+" é: "+str(insperdex[pokemon]['vida'])+"!")
+				print_slow("\n"+str(ataqueOutro()))
+				print_slow("\nAgora a vida do seu "+str(insperdex[insperdex_n]['nome'])+" é: "+str(insperdex[insperdex_n]['vida'])+"!")
+			if (insperdex[pokemon]['vida']==0):
+				print_slow("\nParabéns! Você derrotou o "+str(insperdex[pokemon]['nome'])+"! Agora você pode continuar sua jornada ou seguir para o FabLab recuperar a vida dos seus inspermons!")
+			elif (insperdex[insperdex_n]['vida']==0):
+				print_slow("\nInfelizmente você perdeu a batalha contra o "+str(inspermon[pokemon]['nome']+"! Agora seu "+str(insperdex[insperdex_n]['nome']))+"Deve ser recuperado no FabLab!")
 else:
 	print_slow("Prepare-se para a luta!"+"\n")
 	print_slow("\nDados do "+str(insperdex[pokemon]['nome'])+" selvagem:"+"\n"+"- Vida: "+str(insperdex[pokemon]['vida'])+"\n"+"- Ataque 1: "+str(insperdex[pokemon]['attack'])+"\n"+"- Defesa: "+str(insperdex[pokemon]['defesa'])+"\n"+"- Tipo: "+str(insperdex[pokemon]['tipo']+"\n"))
@@ -135,6 +171,8 @@ else:
 					dano=0
 				if (insperdex[pokemon]['vida']<=0):
 					insperdex[pokemon]['vida']=0
+				if (dano>0):
+					return print_slow("\nVocê causou "+str(dano)+" de dano no "+str(insperdex[pokemon]['nome'])+"!!!")
 				#return print_slow("Você derrotou o "+str(insperdex[pokemon]['nome']))
 		elif (ataque==2):
 			#return print_slow("\nAinda sem ataques")
@@ -154,19 +192,23 @@ else:
 				insperdex[insperdex_n]['vida']=0
 			#return insperdex[insperdex_n]['vida']
 			return print_slow("\nVocê levou "+str(dano)+" de dano do "+str(insperdex[pokemon]['nome'])+"!!!")
-			("\nVocê levou "+str(dano)+" de dano do "+str(insperdex[pokemon]['nome'])+"!!!")
 	insperdex[insperdex_n]['vida']=insperdex[insperdex_n]['vida']
 	insperdex[pokemon]['vida']=insperdex[pokemon]['vida']
 	while (insperdex[insperdex_n]['vida']>0 or insperdex[pokemon]['vida']>0):
-		print_slow("\nQual ataque você deseja usar agora?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
+		if (insperdex[insperdex_n]['vida']==30 and insperdex[pokemon]['vida']==30):
+			print_slow("\nQual ataque você deseja usar?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")	
+		else:
+			print_slow("\nQual ataque você deseja usar agora?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
 		ataque=int(input("-> "))
 		print_slow("\n"+str(seusAtaques(ataque)))
 		if (insperdex[pokemon]['vida']==0):
+			break
+		elif(insperdex[insperdex_n]['vida']==0):
 			break
 		print_slow("\nAgora a vida do "+str(insperdex[pokemon]['nome'])+" é: "+str(insperdex[pokemon]['vida'])+"!")
 		print_slow("\n"+str(ataqueOutro()))
 		print_slow("\nAgora a vida do seu "+str(insperdex[insperdex_n]['nome'])+" é: "+str(insperdex[insperdex_n]['vida'])+"!")
 	if (insperdex[pokemon]['vida']==0):
 		print_slow("\nParabéns! Você derrotou o "+str(insperdex[pokemon]['nome'])+"! Agora você pode continuar sua jornada ou seguir para o FabLab recuperar a vida dos seus inspermons!")
-	elif (insperdex[insperdex_n]['vida']==0):
-		print_slow("\nInfelizmente você perdeu a batalha contra o "+str(inspermon[pokemon]['nome']+"! Agora seu "+str(insperdex[insperdex_n]['nome']))+"Deve ser recuperado no FabLab!")
+	else:
+		print_slow("\nInfelizmente você perdeu a batalha contra o "+str(insperdex[pokemon]['nome']+"! Agora seu "+str(insperdex[insperdex_n]['nome']))+"Deve ser recuperado no FabLab!")
