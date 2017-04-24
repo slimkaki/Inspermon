@@ -97,10 +97,10 @@ os.startfile('rota.mp3')
 print_slow("Escolha um lugar para ir: ")
 print_slow("\nFablab:Recupera seus inspermons(1)\n"+"\nGrama Alta:Pode encontrar inspermons selvagens(2)\n"+"\nLago:Pode encontrar inspermons aquáticos(3)\n"+"\nFloresta:Pode encontrar inspermons mais fortes(4)\n")
 
-lugar_escolha=input("\n"+"->")
+lugar_escolha=int(input("\n"+"->"))
 
-# TESTE DE BATALHA
-while lugar_escolha==1:
+#Passear
+if lugar_escolha==1:
     print_slow("\nVocê foi ao FabLab\n")
     print_slow("\nAguarde enquanto seus inspermons são recuperados\n"+". . . . .")
     os.startfile('heal.mp3')
@@ -109,23 +109,21 @@ while lugar_escolha==1:
     print_slow("Seus inspermons foram recuperados")
 
 
-while lugar_escolha==2:
+elif lugar_escolha==2:
     print_slow("\nVocê foi andar pela grama alta\n")
     time.sleep(1)
     clear()
-    os.system("batalha_inspermon.py")
+    import batalha_inspermon.py
 
-while lugar_escolha==3:
+elif lugar_escolha==3:
     print_slow("\nVocê foi andar pela beira do lago\n")
     time.sleep(1)
     clear()
-	
-    os.system("batalha_inspermon.py")
+    import batalha_inspermon.py
     
-while lugar_escolha==4:
+elif lugar_escolha==4:
     print_slow("\nVocê foi andar pela floresta\n")
     time.sleep(1)
     clear()
-	
-    os.system("batalha_inspermon.py")
+    import batalha_inspermon.py
 
