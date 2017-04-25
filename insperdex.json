@@ -1,0 +1,82 @@
+[
+	{
+		"nome" : "Pelicano",
+		"attack" : 16,
+		"vida" : 30,
+		"defesa" : 8,
+		"tipo" : "Fogo",
+		"numb" : 0
+	},
+	{
+		"nome" : "Carareto",
+		"attack" : 14,
+		"vida" : 30,
+		"defesa" : 10,
+		"tipo" : "Elétrico",
+		"numb" : 1
+	},
+	{
+		"nome" : "Luciano",
+		"attack" : 12,
+		"vida" : 30,
+		"defesa" : 10,
+		"tipo" : "Água",
+		"numb" : 2
+	},
+	{
+		"nome" : "Fernando",
+		"attack" : 12,
+		"vida" : 30,
+		"defesa" : 10,
+		"tipo" : "Gelo",
+		"numb" : 3
+	},
+	{
+		"nome" : "VitDan",
+		"attack" : 13,
+		"vida": 30,
+		"defesa" : 10,
+		"tipo" : "Pedra",
+		"numb" : 4
+	},
+	{
+		"nome": "Hage",
+		"attack": 15,
+		"vida": 30,
+		"defesa": 10,
+		"tipo": "Elétrico",
+		"numb": 5
+	},
+	{
+		"nome": "Leonidas",
+		"attack": 12,
+		"vida": 30,
+		"defesa": 10,
+		"tipo": "Fogo",
+		"numb": 6
+	},
+	{
+		"nome": "Ayres",
+		"attack": 13,
+		"vida": 30,
+		"defesa": 10,
+		"tipo": "Água",
+		"numb": 7
+	},
+	{
+		"nome": "Hashi",
+		"attack": 12,
+		"vida": 30,
+		"defesa": 10,
+		"tipo": "Pedra",
+		"numb": 8
+	},
+	{
+		"nome": "Sérgio",
+		"attack": 12,
+		"vida": 30,
+		"defesa": 10,
+		"tipo": "Gelo",
+		"numb": 9
+	}
+]

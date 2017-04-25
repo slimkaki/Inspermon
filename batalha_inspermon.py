@@ -1,5 +1,6 @@
 #imports
-import time,sys,random,json
+import time,sys,random,json,os
+clear = lambda: os.system('cls')
 
 #slow digit
 def print_slow(str):
@@ -9,9 +10,10 @@ def print_slow(str):
         time.sleep(0.005)
 
 #Código
-insperdex=json.loads(open("inspermons.json", encoding='UTF-8').read())
+insperdex=json.loads(open("insperdex.json", encoding='UTF-8').read())
 secure_random=random.SystemRandom()
 print_slow("\nUm inspermon selvagem apareceu!"+"\n")
+os.startfile("batalha.mp3")
 n=len(insperdex)
 lista=range(n)
 pokemon=random.choice(lista)
@@ -66,7 +68,7 @@ if (esc=="2"):
 
 		print_slow("\nQual poder você deseja usar?\n"+"- Poder 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
 		ataque=int(input("-> "))
-		
+		clear()
 		def seusAtaques(ataque):
 			miss=["Errou!","Acertou"]
 			if (ataque==1):
@@ -200,6 +202,7 @@ else:
 		else:
 			print_slow("\nQual ataque você deseja usar agora?\n"+"- Ataque 1: "+str(insperdex[insperdex_n]['attack'])+"\n")
 		ataque=int(input("-> "))
+		clear()
 		print_slow("\n"+str(seusAtaques(ataque)))
 		if (insperdex[pokemon]['vida']==0):
 			break
@@ -208,7 +211,9 @@ else:
 		print_slow("\nAgora a vida do "+str(insperdex[pokemon]['nome'])+" é: "+str(insperdex[pokemon]['vida'])+"!")
 		print_slow("\n"+str(ataqueOutro()))
 		print_slow("\nAgora a vida do seu "+str(insperdex[insperdex_n]['nome'])+" é: "+str(insperdex[insperdex_n]['vida'])+"!")
-	if (insperdex[pokemon]['vida']==0):
+	if (insperdex[pokemon]['vida']==0 and insperdex[insperdex_n]['vida']!=0):
 		print_slow("\nParabéns! Você derrotou o "+str(insperdex[pokemon]['nome'])+"! Agora você pode continuar sua jornada ou seguir para o FabLab recuperar a vida dos seus inspermons!")
-	else:
+	elif (insperdex[pokemon]['vida']!=0 and insperdex[insperdex_n]['vida']==0):
 		print_slow("\nInfelizmente você perdeu a batalha contra o "+str(insperdex[pokemon]['nome']+"! Agora seu "+str(insperdex[insperdex_n]['nome']))+"Deve ser recuperado no FabLab!")
+	elif (insperdex[pokemon]['vida']==0 and insperdex[insperdex_n]['vida']==0):
+		print_slow("\nEmpate! Você deve agora ir ao Fab Lab recuperar seu inspermon \\\\\\\\\\\\\!!!")
