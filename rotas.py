@@ -14,26 +14,6 @@ def print_sleep(str):
 #função para vida nas batalhas
 clear = lambda: os.system('cls')
 
-#Música de fundo
-os.startfile('tema.mp3')
-
-#Dar rest ou se aventurar
-print_slow("\n"+"Você deseja passear ou dormir?")
-escolha=input("\n"+"-> ").title()
-while escolha=="Dormir":
-    print_sleep(". . . . . . . . . . . . . . . . ."+"\n")
-    time.sleep(0.5)
-    clear()
-    print_slow("Você se sente cheio de determinação.")
-    time.sleep(0.5)
-    clear()
-    print_slow("Agora você deseja passear ou dormir?")
-    escolha=input("\n"+"-> ").title()
-    time.sleep(0.5)
-    clear()
-
-
-
 #Opções de lugares para ir
 os.startfile('rota.mp3')
 print_slow("Escolha um lugar para ir:\n")
@@ -65,23 +45,24 @@ if lugar_escolha==1:
 elif lugar_escolha==0:
     print_slow("\nVocê voltou para casa\n")
     os.startfile('rota.mp3')
-    time.sleep(1)
+    time.sleep(3)
+    import continua
     clear()
 
 elif lugar_escolha==2:
     print_slow("\nVocê foi andar pela grama alta\n")
-    time.sleep(1)
+    time.sleep(3)
     clear()
     import batalha_inspermon
 
 elif lugar_escolha==3:
     print_slow("\nVocê foi andar pela beira do lago\n")
-    time.sleep(1)
+    time.sleep(3)
     clear()
     import batalha_inspermon
     
 elif lugar_escolha==4:
     print_slow("\nVocê foi andar pela floresta\n")
-    time.sleep(1)
+    time.sleep(3)
     clear()
     import batalha_inspermon

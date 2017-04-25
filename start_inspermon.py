@@ -3,11 +3,16 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.005)
+        time.sleep(0.05)
+
+clear = lambda: os.system('cls')
+
 os.startfile('menu.mp3')
 print_slow("Bem-vindo ao Inspermon!")
 print_slow("\n"+"Deseja iniciar o jogo? 0 para quitar, 1 para iniciar e 2 para continuar jogo salvo: "+"\n")
 escolha=int(input("-> "))
+time.sleep(0.5)
+clear()
 if (escolha==1):
 	import inspermon
 elif (escolha==0):

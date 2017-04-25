@@ -9,6 +9,8 @@ def print_slow(str):
         sys.stdout.flush()
         time.sleep(0.005)
 
+
+
 #Código
 insperdex=json.loads(open("insperdex.json", encoding='UTF-8').read())
 secure_random=random.SystemRandom()
@@ -212,8 +214,18 @@ else:
 		print_slow("\n"+str(ataqueOutro()))
 		print_slow("\nAgora a vida do seu "+str(insperdex[insperdex_n]['nome'])+" é: "+str(insperdex[insperdex_n]['vida'])+"!")
 	if (insperdex[pokemon]['vida']==0 and insperdex[insperdex_n]['vida']!=0):
+		os.startfile('vitoria.mp3')
 		print_slow("\nParabéns! Você derrotou o "+str(insperdex[pokemon]['nome'])+"! Agora você pode continuar sua jornada ou seguir para o FabLab recuperar a vida dos seus inspermons!")
+		time.sleep(10)
+		clear()
+		import rotas
 	elif (insperdex[pokemon]['vida']!=0 and insperdex[insperdex_n]['vida']==0):
 		print_slow("\nInfelizmente você perdeu a batalha contra o "+str(insperdex[pokemon]['nome']+"! Agora seu "+str(insperdex[insperdex_n]['nome']))+"Deve ser recuperado no FabLab!")
+		time.sleep(5)
+		clear()
+		import rotas
 	elif (insperdex[pokemon]['vida']==0 and insperdex[insperdex_n]['vida']==0):
 		print_slow("\nEmpate! Você deve agora ir ao Fab Lab recuperar seu inspermon \\\\\\\\\\\\\!!!")
+		time.sleep(5)
+		clear()
+		import rotas
